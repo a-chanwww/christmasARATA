@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クリスマスパーティー招待状</title>
+    <style>
+        /* 背景画像の設定 */
+        body {
+            background-image: url('名称未設定のデザイン.png'); /* Canvaからエクスポートした背景画像のパス */
+            background-size: 100% 280%; /* 画像の横幅を100%、縦は90%に設定 */
+            background-position: center 0%; /* 画像を中央から少し下に配置 */
+            background-repeat: no-repeat; /* 画像が繰り返されないように */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* コンテンツのスタイル */
+        h1, input, button, .error {
+            text-align: center;
+            display: block;
+            margin: 20px auto;
+            color: rgb(177, 79, 79); /* テキストが背景に映えるよう白に設定 */
+        }
+
+        .error {
+            color: red;
+        }
+
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>キーワードを入力してください🎅</h1>
+    <!-- キーワード入力フォーム -->
+    <input type="text" id="keyword" placeholder="キーワードを入力" required>
+    <button onclick="checkKeyword()">送信</button>
+    <p id="error-message" class="error"></p>
+
+    <script>
+        // 正しいキーワード
+        const correctKeyword = "クリスマス2024";
+
+        // キーワードをチェックする関数
+        function checkKeyword() {
+            // ユーザーが入力したキーワードを取得
+            const userKeyword = document.getElementById("keyword").value;
+            const errorMessage = document.getElementById("error-message");
+
+            // キーワードが正しい場合
+            if (userKeyword === correctKeyword) {
+                // 次のページに移動
+                window.location.href = "invite.html";  // 次のページのURL
+            } else {
+                // 間違っている場合エラーメッセージを表示
+                errorMessage.textContent = "アクセスが拒否されました。キーワードが間違っています。";
+            }
+        }
+    </script>
+</body>
+</html>
